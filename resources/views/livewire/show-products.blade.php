@@ -1,13 +1,18 @@
 <div>
 
     <div>
-        @if (session()->has('message'))
+        @if (session()->has('success'))
             <div class="alert alert-success">
-                {{ session('message') }}
+                {{ session('success') }}
+            </div>
+        @elseif(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
             </div>
         @endif
+
     </div>
-    
+
     <div class="row">
         @foreach ($products as $product)
             <div class="col-3">

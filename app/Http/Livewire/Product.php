@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\ShoppingCart;
+use DB;
 use Livewire\Component;
 
 class Product extends Component
@@ -21,9 +22,6 @@ class Product extends Component
 
     public function addToCart($product)
     {
-        $this->emit('SHOW_NOTIFICATION', 'message', 'Post successfully updated.');
-        /*exit();
-
         $user = auth()->user();
         $cart = ShoppingCart::firstOrCreate(
             [
@@ -31,35 +29,29 @@ class Product extends Component
                 'completed' => false
             ]
         );
-
+        
         // checking if the product exists
-        $product = Product::findOrFail($product);
+        $product = \App\Models\Product::findOrFail($product);
 
         // checking if the product is out of stock
         if ($product->inventory_count == 0) {
-            // TODO: send notification back
-            return response()->json([
-                'message' => 'Product out of stock.'
-            ], 409);
+            $this->emit('SHOW_NOTIFICATION', 'error', 'Product out of stock.');
+            return;
         }
 
         // checking if this cart already contains this product
-        foreach ($cart->products()->get() as $prod) { // TODO: use sql to write query
-            if ($prod->id == $product->id) {
-                // TODO: send notification back
-                return response()->json([
-                    'message' => 'This cart already contains this product.'
-                ], 409);
-            }
+        if (DB::table('product_shoppingcart')
+            ->where('shoppingcart_id', $cart->id)
+            ->where('product_id', $product->id)
+            ->exists()) {
+            $this->emit('SHOW_NOTIFICATION', 'error', 'This cart already contains this product.');
+            return;
         }
 
         // adding the product to the cart
         $cart->products()->attach($product->id);
         $cart->save();
 
-        // TODO: send notification back
-        return response()->json([
-            'message' => 'Product added to cart.'
-        ], 200);*/
+        $this->emit('SHOW_NOTIFICATION', 'success', 'Product added to cart.');
     }
 }
