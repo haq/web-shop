@@ -53,5 +53,6 @@ class Product extends Component
         $cart->save();
 
         $this->emit('SHOW_NOTIFICATION', 'success', 'Product added to cart.');
+        $this->emit('ADDED_PRODUCT_TO_CART');
     }
 }
