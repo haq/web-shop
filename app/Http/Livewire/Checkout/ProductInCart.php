@@ -19,7 +19,7 @@ class ProductInCart extends Component
 
     public function render()
     {
-        return view('livewire.product-in-cart');
+        return view('livewire.checkout.product-in-cart');
     }
 
     public function removeFromCart()
