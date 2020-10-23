@@ -33,8 +33,9 @@ class HomeController extends Controller
         }
 
         return view('checkout', [
+            'cart' => $cart,
             'products' => $products,
-            'totalPrice' => $totalPrice,
+            'total' => $totalPrice,
         ]);
     }
 }

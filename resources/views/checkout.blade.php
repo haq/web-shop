@@ -2,37 +2,32 @@
 
 @section('content')
     <div class="container">
+        @livewire('show-notification')
 
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">Your cart</span>
-                    <span class="badge badge-secondary badge-pill">3</span>
+                    <span class="badge badge-secondary badge-pill">{{ count($products) }}</span>
                 </h4>
                 <ul class="list-group mb-3">
                     @foreach($products as $product)
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">{{ $product->title }}</h6>
-                                <small class="text-muted">Brief description</small>
-                            </div>
-                            <span class="text-muted">${{ $product->price }}</span>
-                        </li>
+                        @livewire('product-in-cart', ['cart' => $cart, 'product' => $product], key($product->id))
                     @endforeach
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (USD)</span>
-                        <strong>${{ $totalPrice }}</strong>
+                        <strong>${{ $total }}</strong>
                     </li>
                 </ul>
 
-                <form class="card p-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Promo code">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </div>
-                </form>
+                {{-- <form class="card p-2">
+                     <div class="input-group">
+                         <input type="text" class="form-control" placeholder="Promo code">
+                         <div class="input-group-append">
+                             <button type="submit" class="btn btn-secondary">Redeem</button>
+                         </div>
+                     </div>
+                 </form>--}}
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
@@ -91,17 +86,17 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="mb-4">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="same-address">
-                        <label class="custom-control-label" for="same-address">Shipping address is the same as my
-                            billing
-                            address</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="save-info">
-                        <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                    </div>
+                    {{--     <hr class="mb-4">
+                         <div class="custom-control custom-checkbox">
+                             <input type="checkbox" class="custom-control-input" id="same-address">
+                             <label class="custom-control-label" for="same-address">Shipping address is the same as my
+                                 billing
+                                 address</label>
+                         </div>
+                         <div class="custom-control custom-checkbox">
+                             <input type="checkbox" class="custom-control-input" id="save-info">
+                             <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                         </div>--}}
                     <hr class="mb-4">
 
                     <h4 class="mb-3">Payment</h4>

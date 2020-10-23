@@ -1,4 +1,4 @@
-<div>
+<div class="col-3">
     <div class="card mt-2 mr-2" style="width: 16rem;">
         <img class="card-img-top"
              src="https://www.gravatar.com/avatar/94d093eda664addd6e450d7e9881bcad?s=634"
