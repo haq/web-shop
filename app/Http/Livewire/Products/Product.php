@@ -17,7 +17,7 @@ class Product extends Component
 
     public function render()
     {
-        return view('livewire.product');
+        return view('livewire.products.product');
     }
 
     public function addToCart($product)
