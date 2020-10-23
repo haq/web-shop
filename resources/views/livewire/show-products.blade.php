@@ -1,10 +1,10 @@
 <div>
 
     @livewire('show-notification')
-    
+
     <div class="row">
         @foreach ($products as $product)
-            @livewire('product', ['product' => $product], key($product->id))
+            @livewire('products.product', ['product' => $product], key($product->id))
         @endforeach
     </div>
 

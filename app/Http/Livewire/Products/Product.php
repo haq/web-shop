@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Products;
 
 use App\Models\ShoppingCart;
 use DB;
@@ -29,7 +29,7 @@ class Product extends Component
                 'completed' => false
             ]
         );
-        
+
         // checking if the product exists
         $product = \App\Models\Product::findOrFail($product);
 

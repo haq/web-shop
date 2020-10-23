@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Checkout;
 
+use App\Models\Product;
 use App\Models\ShoppingCart;
 use DB;
 use Livewire\Component;
@@ -10,7 +11,7 @@ class ProductInCart extends Component
 {
     public $cart, $product;
 
-    public function mount(ShoppingCart $cart, \App\Models\Product $product)
+    public function mount(ShoppingCart $cart, Product $product)
     {
         $this->cart = $cart;
         $this->product = $product;
@@ -23,7 +24,6 @@ class ProductInCart extends Component
 
     public function removeFromCart()
     {
-
         // checking the cart does not contain the product
         if (!DB::table('product_shoppingcart')
             ->where('shoppingcart_id', $this->cart->id)
@@ -38,5 +38,6 @@ class ProductInCart extends Component
         $this->cart->save();
 
         $this->emit('SHOW_NOTIFICATION', 'success', 'Product removed from cart.');
+        $this->emit('REMOVED_PRODUCT_FROM_CART');
     }
 }
