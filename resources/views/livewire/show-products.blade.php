@@ -1,18 +1,10 @@
 <div>
 
-    <div>
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        @endif
-    </div>
-    
+    @livewire('show-notification')
+
     <div class="row">
         @foreach ($products as $product)
-            <div class="col-3">
-                @livewire('product', ['product' => $product], key($product->id))
-            </div>
+            @livewire('products.product', ['product' => $product], key($product->id))
         @endforeach
     </div>
 

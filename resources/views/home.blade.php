@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        @livewire('show-products')
+        @livewire('products.show-products')
     </div>
 @endsection
