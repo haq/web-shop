@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f71e717cac3a89292f7780aa8bf5590e",
+    "content-hash": "c474c7de6bba14ef1a2909b64417ff67",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1126,64 +1126,6 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.5.0"
             },
             "time": "2020-10-29T13:07:12+00:00"
-        },
-        {
-            "name": "laravel/ui",
-            "version": "v3.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/ui.git",
-                "reference": "a1f82c6283c8373ea1958b8a27c3d5c98cade351"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/a1f82c6283c8373ea1958b8a27c3d5c98cade351",
-                "reference": "a1f82c6283c8373ea1958b8a27c3d5c98cade351",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^8.0",
-                "illuminate/filesystem": "^8.0",
-                "illuminate/support": "^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Ui\\UiServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Ui\\": "src/",
-                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel UI utilities and presets.",
-            "keywords": [
-                "laravel",
-                "ui"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/ui/issues",
-                "source": "https://github.com/laravel/ui/tree/v3.2.0"
-            },
-            "time": "2021-01-06T19:20:22+00:00"
         },
         {
             "name": "league/commonmark",
@@ -5503,6 +5445,62 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "haq/seal",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haq/laravel-seal.git",
+                "reference": "5970a12610e6977eeac75852bd015d0f8f306c44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haq/laravel-seal/zipball/5970a12610e6977eeac75852bd015d0f8f306c44",
+                "reference": "5970a12610e6977eeac75852bd015d0f8f306c44",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "^8.0",
+                "illuminate/support": "^8.0",
+                "livewire/livewire": "^2.3.3",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Haq\\Seal\\SealServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Haq\\Seal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Affan Haq",
+                    "email": "affan.haq@outlook.com"
+                }
+            ],
+            "description": "Basic authentication scaffolding using Blade, Boostrap and Livewire.",
+            "keywords": [
+                "auth",
+                "bootstrap",
+                "laravel",
+                "livewire"
+            ],
+            "support": {
+                "issues": "https://github.com/haq/laravel-seal/issues",
+                "source": "https://github.com/haq/laravel-seal/tree/v1.1.5"
+            },
+            "time": "2021-01-14T23:03:08+00:00"
         },
         {
             "name": "maximebf/debugbar",
