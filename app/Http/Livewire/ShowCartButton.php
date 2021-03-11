@@ -19,10 +19,10 @@ class ShowCartButton extends Component
                 'user_id' => auth()->user()->id,
                 'completed' => false
             ]
-        )->firstOrFail();
+        );
 
         return view('livewire.show-cart-button', [
-            'count' => $cart->products()->count(),
+            'count' => $cart->exists() ? $cart->first()->products()->count() : 0,
         ]);
     }
 }

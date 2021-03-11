@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Checkout;
 
 use App\Models\ShoppingCart;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Component;
 
 class ShowProducts extends Component
@@ -11,12 +12,21 @@ class ShowProducts extends Component
 
     public function render()
     {
-        $cart = ShoppingCart::where(
-            [
-                'user_id' => auth()->user()->id,
-                'completed' => false
-            ]
-        )->firstOrFail();
+
+        try {
+            $cart = ShoppingCart::where(
+                [
+                    'user_id' => auth()->user()->id,
+                    'completed' => false
+                ]
+            )->firstOrFail();
+        } catch (ModelNotFoundException) {
+            return view('livewire.checkout.show-products', [
+                'cart' => [],
+                'products' => [],
+                'total' => 0,
+            ]);
+        }
 
         $products = $cart->products;
         $totalPrice = 0;
