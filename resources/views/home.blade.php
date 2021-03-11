@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
     <div class="container">
         @livewire('products.show-products')
     </div>
-@endsection
+</x-app-layout>
