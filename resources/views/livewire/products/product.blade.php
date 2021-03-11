@@ -11,7 +11,7 @@
         </div>
         <div class="card-footer">
             <small class="text-muted">
-                <strong>{{ $product->inventory_count }}</strong> in stock
+                <strong>{{ $product->stock }}</strong> in stock
             </small>
         </div>
     </div>

@@ -42,6 +42,7 @@
                             </li>
                         @endif
                     @else
+                        @livewire('show-cart-button')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown"
                                class="nav-link dropdown-toggle"
@@ -54,6 +55,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('products.create') }}">
+                                    {{ __('Create Product') }}
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

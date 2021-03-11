@@ -13,10 +13,10 @@ class CreateProductShoppingCartTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_shoppingcart', function (Blueprint $table) {
+        Schema::create('product_shopping_cart', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id')->unsigned();
-            $table->integer('shoppingcart_id')->unsigned();
+            $table->foreignId('product_id')->constrained();
+            $table->foreignId('shopping_cart_id')->constrained('shopping_carts');
             $table->timestamps();
         });
     }

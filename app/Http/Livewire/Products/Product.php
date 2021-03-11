@@ -20,7 +20,7 @@ class Product extends Component
         return view('livewire.products.product');
     }
 
-    public function addToCart($product)
+    public function addToCart(\App\Models\Product $product)
     {
         $user = auth()->user();
         $cart = ShoppingCart::firstOrCreate(
@@ -30,18 +30,15 @@ class Product extends Component
             ]
         );
 
-        // checking if the product exists
-        $product = \App\Models\Product::findOrFail($product);
-
         // checking if the product is out of stock
-        if ($product->inventory_count == 0) {
+        if ($product->stock == 0) {
             $this->emit('SHOW_NOTIFICATION', 'error', 'Product out of stock.');
             return;
         }
 
         // checking if this cart already contains this product
-        if (DB::table('product_shoppingcart')
-            ->where('shoppingcart_id', $cart->id)
+        if (DB::table('product_shopping_cart')
+            ->where('shopping_cart_id', $cart->id)
             ->where('product_id', $product->id)
             ->exists()) {
             $this->emit('SHOW_NOTIFICATION', 'error', 'This cart already contains this product.');

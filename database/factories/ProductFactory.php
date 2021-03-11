@@ -3,9 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Product;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ProductFactory extends Factory
 {
@@ -23,11 +21,11 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $now = Carbon::now();
+        $now = now();
         return [
             'title' => $this->faker->word,
             'price' => $this->faker->randomNumber(6),
-            'inventory_count' => $this->faker->randomDigitNotNull,
+            'stock' => $this->faker->randomDigitNotNull,
             'updated_at' => $now,
             'created_at' => $now,
         ];

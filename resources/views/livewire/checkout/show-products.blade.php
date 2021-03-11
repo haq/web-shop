@@ -9,7 +9,7 @@
         @endforeach
         <li class="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
-            <strong>${{ $total }}</strong>
+            <strong>${{ number_format($product->price / 100, 2) }}</strong>
         </li>
     </ul>
 

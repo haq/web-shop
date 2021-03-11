@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property string title
  * @property int price
- * @property int inventory_count
+ * @property int stock
  */
 class Product extends Model
 {
@@ -17,7 +17,7 @@ class Product extends Model
     protected $fillable = [
         'title',
         'price',
-        'inventory_count',
+        'stock',
     ];
 
     protected $hidden = [
@@ -26,6 +26,6 @@ class Product extends Model
 
     public function shoppingCarts()
     {
-        return $this->belongsToMany('App\Models\ShoppingCart', 'product_shoppingcart', 'product_id', 'shoppingcart_id');
+        return $this->belongsToMany(ShoppingCart::class, 'product_shopping_cart', 'product_id', 'shopping_cart_id');
     }
 }

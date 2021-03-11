@@ -20,11 +20,11 @@ class ShoppingCart extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product', 'product_shoppingcart', 'shoppingcart_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'product_shopping_cart', 'shopping_cart_id', 'product_id');
     }
 }

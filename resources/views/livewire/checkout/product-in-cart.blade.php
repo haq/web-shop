@@ -7,5 +7,5 @@
             </a>
         </small>
     </div>
-    <span class="text-muted">${{ $product->price }}</span>
+    <span class="text-muted">${{ number_format($product->price / 100, 2) }}</span>
 </li>

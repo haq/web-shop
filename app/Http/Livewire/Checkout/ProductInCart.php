@@ -25,8 +25,8 @@ class ProductInCart extends Component
     public function removeFromCart()
     {
         // checking the cart does not contain the product
-        if (!DB::table('product_shoppingcart')
-            ->where('shoppingcart_id', $this->cart->id)
+        if (!DB::table('product_shopping_cart')
+            ->where('shopping_cart_id', $this->cart->id)
             ->where('product_id', $this->product->id)
             ->exists()) {
             $this->emit('SHOW_NOTIFICATION', 'error', 'This cart does not contain this product.');
